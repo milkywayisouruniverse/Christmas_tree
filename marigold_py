@@ -1,0 +1,49 @@
+import turtle
+import random
+
+# Screen setup
+screen = turtle.Screen()
+screen.bgcolor("lightyellow")
+
+t = turtle.Turtle()
+t.speed(0)
+t.hideturtle()
+
+# ----- Stem -----
+t.penup()
+t.goto(0, -250)
+t.setheading(90)
+t.pendown()
+t.color("green")
+t.width(6)
+t.forward(180)
+
+# Move to flower center
+t.penup()
+t.goto(0, -70)
+t.pendown()
+
+# ----- Marigold Petals -----
+t.color("orange", "gold")
+t.width(2)
+
+for _ in range(120):
+    t.begin_fill()
+    t.forward(60)
+    t.left(45)
+    t.forward(40)
+    t.left(135)
+    t.forward(40)
+    t.left(45)
+    t.forward(60)
+    t.end_fill()
+    t.left(360 / 120)
+
+# ----- Center -----
+t.penup()
+t.goto(0, -70)
+t.pendown()
+t.color("darkorange")
+t.dot(40)
+
+screen.mainloop()
