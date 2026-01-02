@@ -1,49 +1,53 @@
 import turtle
-import random
 
-# Screen setup
+# Setup
 screen = turtle.Screen()
-screen.bgcolor("lightyellow")
+screen.bgcolor("skyblue")
 
-t = turtle.Turtle()
-t.speed(0)
-t.hideturtle()
+flower = turtle.Turtle()
+flower.speed(0)
+flower.width(2)
 
-# ----- Stem -----
-t.penup()
-t.goto(0, -250)
-t.setheading(90)
-t.pendown()
-t.color("green")
-t.width(6)
-t.forward(180)
+# Stem
+flower.penup()
+flower.goto(0, -200)
+flower.pendown()
+flower.color("green")
+flower.setheading(90)
+flower.forward(200)
 
-# Move to flower center
-t.penup()
-t.goto(0, -70)
-t.pendown()
+# Leaves
+flower.setheading(45)
+flower.forward(80)
+flower.backward(80)
+flower.setheading(135)
+flower.forward(80)
+flower.backward(80)
 
-# ----- Marigold Petals -----
-t.color("orange", "gold")
-t.width(2)
+# Move to flower head
+flower.penup()
+flower.goto(0, 0)
+flower.setheading(0)
+flower.pendown()
 
-for _ in range(120):
-    t.begin_fill()
-    t.forward(60)
-    t.left(45)
-    t.forward(40)
-    t.left(135)
-    t.forward(40)
-    t.left(45)
-    t.forward(60)
-    t.end_fill()
-    t.left(360 / 120)
+# Petals
+flower.color("yellow")
+for _ in range(6):
+    flower.circle(60, 60)
+    flower.left(120)
+    flower.circle(60, 60)
+    flower.left(60)
 
-# ----- Center -----
-t.penup()
-t.goto(0, -70)
-t.pendown()
-t.color("darkorange")
-t.dot(40)
+# Center trumpet
+flower.penup()
+flower.goto(0, -20)
+flower.pendown()
+flower.color("orange")
 
+flower.begin_fill()
+flower.circle(25)
+flower.end_fill()
+
+# Finish
+flower.hideturtle()
 screen.mainloop()
